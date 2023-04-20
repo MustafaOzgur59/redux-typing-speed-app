@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import LanguageSelect from "./components/LanguageSelect";
 import TextArea from "./components/TextArea";
 import InputArea from "./components/InputArea";
+import Result from "./components/Result";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <LanguageSelect />
       <TextArea />
       <InputArea />
+      <Result />
     </div>
   );
 }

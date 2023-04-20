@@ -59,7 +59,7 @@ export const textSlice = createSlice({
       ) {
         state.words[state.currentWordIndex].color = "#4ADE80";
       } else {
-        state.words[state.currentWordIndex].bgColor = "#FE0001";
+        state.words[state.currentWordIndex].color = "#FE0001";
       }
     },
     goNextWord: (state, action) => {
@@ -75,9 +75,23 @@ export const textSlice = createSlice({
         state.wrongWordCount += 1;
       }
     },
+    resetTimer: (state, action) => {
+      state.timer = 60;
+      state.correctWordCount = 0;
+      state.wrongWordCount = 0;
+      state.currentWordIndex = 0;
+      state.totalKeyPress = 0;
+      state.words = loadWords(state.currentLanguage, state.wordCount);
+      state.enableClock = false;
+    },
   },
 });
 
-export const { changeLanguage, countDown, checkWordMatch, goNextWord } =
-  textSlice.actions;
+export const {
+  changeLanguage,
+  countDown,
+  checkWordMatch,
+  goNextWord,
+  resetTimer,
+} = textSlice.actions;
 export default textSlice.reducer;

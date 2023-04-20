@@ -18,7 +18,7 @@ const Timer = () => {
     }
   }, [timer, enableClock, dispatch]);
   return (
-    <div className="text-white text-2xl bg-gray-400 px-2  rounded-md">{`${Math.floor(
+    <div className="text-white text-2xl bg-gray-400 px-2 py-1 rounded-md">{`${Math.floor(
       timer / 60
     )}:${timer % 60 < 10 ? "0" : ""}${timer % 60}`}</div>
   );
