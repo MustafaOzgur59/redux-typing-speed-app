@@ -39,6 +39,8 @@ export const textSlice = createSlice({
     wrongWordCount: 0,
     timer: 60,
     totalKeyPress: 0,
+    correctKeyPress: 0,
+    wrongKeyPress: 0,
     enableClock: false,
   },
   reducers: {
@@ -58,8 +60,10 @@ export const textSlice = createSlice({
         state.words[state.currentWordIndex].word.startsWith(action.payload)
       ) {
         state.words[state.currentWordIndex].color = "#4ADE80";
+        state.correctKeyPress += 1;
       } else {
         state.words[state.currentWordIndex].color = "#FE0001";
+        state.wrongKeyPress += 1;
       }
     },
     goNextWord: (state, action) => {
@@ -81,6 +85,8 @@ export const textSlice = createSlice({
       state.wrongWordCount = 0;
       state.currentWordIndex = 0;
       state.totalKeyPress = 0;
+      state.correctKeyPress = 0;
+      state.wrongKeyPress = 0;
       state.words = loadWords(state.currentLanguage, state.wordCount);
       state.enableClock = false;
     },
